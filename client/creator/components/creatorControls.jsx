@@ -1,4 +1,9 @@
 CreatorControls = React.createClass({
+    editorWidthChanged: function(e) {
+        var value = e.target.value;
+        valueInt = parseInt(value);
+        this.props.editorWidthChanged(valueInt);
+    },
     render: function() {
 
         let styles = {
@@ -59,7 +64,7 @@ CreatorControls = React.createClass({
                         Editor Width:
                     </div>
                     <div style={styles.sliderContainer}>
-                        <input style={styles.slider} type="range" min="0" max="100"></input>
+                        <input style={styles.slider} defaultValue={this.props.editorWidth} onChange={this.editorWidthChanged} type="range" min="400" max={window.innerWidth - 90}></input>
                     </div>
                     <div style={styles.label}>
                         Brightness:

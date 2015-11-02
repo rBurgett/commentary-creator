@@ -1,7 +1,8 @@
 Creator = React.createClass({
     getInitialState: function() {
         return {
-            showControls: false
+            showControls: false,
+            editorWidth: 600
         }
     },
     showControlsTimeout: null,
@@ -24,13 +25,22 @@ Creator = React.createClass({
         }
 
     },
+    editorWidthChanged: function(val) {
+        let state = this.state;
+        state.editorWidth = val;
+        this.setState(state);
+    },
     render: function() {
 
         let state = this.state;
 
         let styles = {
             container: {
-                height: window.innerHeight
+                minHeight: window.innerHeight
+            },
+            creatorWorkspaceContainer: {
+                margin: 'auto',
+                width: state.editorWidth
             }
         };
 
@@ -38,7 +48,10 @@ Creator = React.createClass({
 
         return (
             <div style={styles.container} onMouseMove={mouseMoved}>
-                <CreatorControls show={state.showControls} />
+                <CreatorControls show={state.showControls} editorWidth={state.editorWidth} editorWidthChanged={this.editorWidthChanged} />
+                <div style={styles.creatorWorkspaceContainer}>
+                    <CreatorWorkspace />
+                </div>
             </div>
         )
     }
