@@ -1,7 +1,7 @@
 FlowRouter.route('/', {
     action: function() {
         ReactLayout.render(MainLayout, {
-            content: ''
+            content: <Creator />
         });
     }
 });
