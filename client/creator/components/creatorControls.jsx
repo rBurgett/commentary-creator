@@ -19,8 +19,12 @@ CreatorControls = React.createClass({
                 fontFamily: 'Open Sans',
                 fontWeight: '300',
                 letterSpacing: '2px',
-                opacity: .9,
-                transition: 'height 200ms'
+                opacity: .95,
+                transition: 'height 200ms',
+                zIndex: 1000,
+                borderBottomStyle: 'solid',
+                borderBottomColor: '#FFF',
+                borderBottomWidth: 1
             },
             innerContainer: {
                 // display: 'table-cell',
